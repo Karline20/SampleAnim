@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SubActivity">
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/start"
+        android:text="start"/>
+
+    <ImageView
+        android:id="@+id/animated_view"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="500dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_anim_cardview" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="8dp"
+        app:cardBackgroundColor="#F5F5F5"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        app:cardCornerRadius="8dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/distinction_section"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:elevation="0dp"
+                app:cardBackgroundColor="@color/crimsonColor"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="0dp"
+                app:layout_constraintBottom_toBottomOf="@+id/distinction_space"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/distinct_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="8dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/barlow_bold"
+                android:maxLines="2"
+                android:text="@{distinctTitle}"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/distinction_section"
+                tools:text="OWTO SKED" />
+
+            <RelativeLayout
+                android:id="@+id/distinction_space"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@color/colorDefaultBackground"
+                android:elevation="20dp"
+                app:layout_constraintTop_toBottomOf="@+id/distinction_section"
+                app:layout_constraintBottom_toTopOf="@id/pickup_and_dropoff_section"/>
+
+            <View
+                android:id="@+id/center_line_booking_details"
+                android:layout_width="1px"
+                android:layout_height="0dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:alpha="0.25"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.4"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/pickup_and_dropoff_section"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:elevation="0dp"
+                app:cardBackgroundColor="@color/crimsonColor"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="0dp"
+                app:layout_constraintTop_toBottomOf="@+id/distinction_space"
+                app:layout_constraintBottom_toBottomOf="@+id/dropoff_space" />
+
+            <View
+                android:id="@+id/displayPhotoBg"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_marginLeft="8dp"
+                android:background="@drawable/bg_circle_white"
+                app:layout_constraintBottom_toBottomOf="@+id/end"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/trip_start"
+                app:layout_constraintVertical_bias="0.6" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/displayPhoto"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_margin="4dp"
+                android:src="@drawable/shape_circle_offline"
+                app:layout_constraintBottom_toBottomOf="@+id/displayPhotoBg"
+                app:layout_constraintLeft_toLeftOf="@+id/displayPhotoBg"
+                app:layout_constraintRight_toRightOf="@+id/displayPhotoBg"
+                app:layout_constraintTop_toTopOf="@+id/displayPhotoBg" />
+
+            <ImageView
+                android:id="@+id/trip_start"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="4dp"
+                android:src="@drawable/ic_arrow_down"
+                app:layout_constraintBottom_toBottomOf="@+id/pickup"
+                app:layout_constraintLeft_toRightOf="@id/displayPhoto"
+                app:layout_constraintTop_toTopOf="@id/pickup" />
+
+            <TextView
+                android:id="@+id/pickup"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/barlow_medium"
+                android:maxLines="2"
+                android:text="@{pickUpText}"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:layout_constraintLeft_toRightOf="@id/trip_start"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/distinction_space"
+                tools:text="420 Ecma One Plaza Inc. One Ortigas" />
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="4dp"
+                android:layout_height="4dp"
+                android:background="@drawable/bg_circle_white"
+                app:layout_constraintBottom_toTopOf="@+id/view2"
+                app:layout_constraintLeft_toLeftOf="@+id/trip_start"
+                app:layout_constraintLeft_toRightOf="@id/displayPhoto"
+                app:layout_constraintRight_toRightOf="@+id/trip_start"
+                app:layout_constraintTop_toBottomOf="@+id/trip_start" />
+
+            <View
+                android:id="@+id/view2"
+                android:layout_width="4dp"
+                android:layout_height="4dp"
+                android:background="@drawable/bg_circle_white"
+                app:layout_constraintBottom_toTopOf="@+id/end"
+                app:layout_constraintLeft_toLeftOf="@+id/trip_start"
+                app:layout_constraintLeft_toRightOf="@id/displayPhoto"
+                app:layout_constraintRight_toRightOf="@+id/trip_start"
+                app:layout_constraintTop_toBottomOf="@+id/view" />
+
+            <ImageView
+                android:id="@+id/end"
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:src="@drawable/bg_circle_white"
+                app:layout_constraintBottom_toBottomOf="@+id/dropoff"
+                app:layout_constraintLeft_toLeftOf="@+id/trip_start"
+                app:layout_constraintRight_toRightOf="@+id/trip_start"
+                app:layout_constraintTop_toTopOf="@+id/dropoff"
+                app:tint="@color/pastelGreenColor" />
+
+            <TextView
+                android:id="@+id/dropoff"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/barlow_medium"
+                android:maxLines="2"
+                android:text="@{dropOffText}"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:layout_constraintLeft_toLeftOf="@id/pickup"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/pickup"
+                tools:text="6969 Acme Building, West Avenue" />
+
+            <View
+                android:id="@+id/dropoff_space"
+                android:layout_width="match_parent"
+                android:layout_height="16dp"
+                app:layout_constraintTop_toBottomOf="@+id/dropoff" />
+
+            <TextView
+                android:id="@+id/estimate_price_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/barlow_medium"
+                android:text="Fare "
+                android:textColor="@color/black50PercentColor"
+                android:textSize="14sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/pickup_and_dropoff_section" />
+
+            <TextView
+                android:id="@+id/estimate_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/barlow_bold"
+                android:text="@{estimate}"
+                android:textColor="@color/colorMainText"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/estimate_price_label"
+                app:layout_constraintLeft_toRightOf="@+id/estimate_price_label"
+                app:layout_constraintTop_toTopOf="@+id/estimate_price_label"
+                tools:text="₱1000.00" />
+
+            <View
+                android:id="@+id/fare_distance_divider"
+                android:layout_width="1px"
+                android:layout_height="0dp"
+                android:layout_marginLeft="8dp"
+                android:background="@color/black75PercentColor"
+                app:layout_constraintBottom_toBottomOf="@+id/estimate_price_label"
+                app:layout_constraintLeft_toRightOf="@+id/estimate_price"
+                app:layout_constraintTop_toTopOf="@+id/estimate_price_label" />
+
+            <TextView
+                android:id="@+id/distance_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:fontFamily="@font/barlow_medium"
+                android:text="Dist. to Pickup"
+                android:textColor="@color/black50PercentColor"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/estimate_price_label"
+                app:layout_constraintLeft_toRightOf="@+id/center_line_booking_details"
+                app:layout_constraintTop_toTopOf="@+id/estimate_price_label" />
+
+            <TextView
+                android:id="@+id/distanceTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:fontFamily="@font/barlow_bold"
+                android:gravity="center"
+                android:text="@{distance}"
+                android:textColor="@color/colorMainText"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/estimate_price_label"
+                app:layout_constraintLeft_toRightOf="@+id/distance_label"
+                app:layout_constraintTop_toTopOf="@+id/estimate_price_label"
+                tools:text="9.2 km" />
+
+            <TextView
+                android:id="@+id/scheduleLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/barlow_medium"
+                android:text="Scheduled date:"
+                android:textColor="@color/black50PercentColor"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/distance_label"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/scheduleTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/barlow_bold"
+                android:text="@{scheduleDate}"
+                android:textColor="@color/colorMainText"
+                android:textSize="14sp"
+                app:layout_constraintStart_toEndOf="@+id/center_line_booking_details"
+                app:layout_constraintTop_toBottomOf="@+id/distance_label"
+                tools:text="2024-09-09T14:25:56.819Z"
+                tools:visibility="visible" />
+
+
+            <TextView
+                android:id="@+id/corporateLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/barlow_medium"
+                android:text="Corporate:"
+                android:textColor="@color/black50PercentColor"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/scheduleLabel"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/corporateTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/barlow_bold"
+                android:text="@{companyName}"
+                android:textColor="@color/colorMainText"
+                android:textSize="14sp"
+                app:layout_constraintStart_toEndOf="@+id/center_line_booking_details"
+                app:layout_constraintTop_toBottomOf="@+id/scheduleTv"
+                tools:text="OWTO Philippines"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/riderLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/barlow_medium"
+                android:text="Riders name:"
+                android:textColor="@color/black50PercentColor"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/corporateLabel"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/riderTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/barlow_bold"
+                android:text="@{name}"
+                android:textColor="@color/colorMainText"
+                android:textSize="14sp"
+                app:layout_constraintStart_toEndOf="@+id/center_line_booking_details"
+                app:layout_constraintTop_toBottomOf="@+id/corporateTv"
+                tools:text="Legaspi test"
+                tools:visibility="visible" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/actions_section"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:elevation="0dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="0dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/riderLabel">
+
+                <Button
+                    android:id="@+id/accept"
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/shape_rectangle_red"
+                    android:drawableLeft="@drawable/ic_check_circle"
+                    android:fontFamily="@font/barlow_bold"
+                    android:foreground="?selectableItemBackground"
+                    android:onClick="@{onAcceptListener}"
+                    android:text="ACCEPT"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    tools:targetApi="m" />
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/noteLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="@font/barlow_bold"
+                android:text="Note:"
+                android:textColor="@color/warningColor"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/actions_section"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/noteTv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/barlow_regular"
+                android:text="Please arrive 10 mins before the scheduled date!"
+                android:textColor="@color/warningColor"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/noteLabel"
+                app:layout_constraintTop_toBottomOf="@+id/actions_section"
+                tools:visibility="visible" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>
